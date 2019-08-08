@@ -1,0 +1,13 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+  <a href="#" class="text-uppercase">Logout</a>
+}
+else
+{
+ <a href="#" class="text-uppercase">Login</a>
+}

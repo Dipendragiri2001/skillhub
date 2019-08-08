@@ -1,0 +1,80 @@
+@model Course
+
+  
+    <title> New Course</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+ 
+  <body>
+
+ <form asp-action="Create" asp-controller="Course" method="POST" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id">
+                <div class="form group">
+                    <label>Course Title</label>
+                    <input type="text" asp-for="CourseTitle" class="form-control">
+                </div>
+                <label><strong>About Course</strong></label>
+                <br>
+
+
+
+    <textarea id="summernote" name="description2" value="description2"></textarea>
+    <script>
+      $('#summernote').summernote({
+        placeholder: 'Course Description Goes Here...',
+        tabsize: 2,
+        height: 100
+      });
+    </script>
+
+ <div class="form group">
+                    <label>Couse Duration</label>
+                    <input type="text" asp-for="Duration" class="form-control">
+                </div>
+ <div class="form group">
+                    <label>Language</label>
+                    <input type="text" asp-for="Language" class="form-control">
+</div>
+
+<div class="form-group">
+   <label > Category </label>
+    <select class="form-control" asp-for="Category"> 
+      <option>Programming</option>
+      <option>Mobile App Development</option>
+      <option>Business</option>
+      <option>Entrepreneurship</option>
+      <option>Ethical Hacking</option>
+      <option>Start ups</option>
+     
+      <option>Design and simulation</option>
+      
+    </select>
+  </div>
+ 
+<div class="form group">
+                    <label>Course By</label>
+                    <input type="text" asp-for="UserName" value="@ViewBag.username" class="form-control" readonly>
+</div>
+<br>
+<div class="custom-file">
+    <input  class="custom-file-input" type="file" name="pic" accept="image/*" required>
+    <label class="custom-file-label" >Chose post photo...</label>
+   
+</div>
+
+
+
+<input class="btn btn-outline-primary" type="submit" value="Create"/>
+ 
+<br>
+        
+</form>
+
+
+  </body>
+
+
